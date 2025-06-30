@@ -1,0 +1,18 @@
+modules = ["java-graalvm22.3"]
+run = "version"
+[nix]
+channel = "stable-24_05"
+packages = ["perl538Packages.JavaScriptMinifierXS", "perlPackages.JavaScriptValueEscape", "vimPlugins.vim-clap"]
+
+[deployment]
+run = ["sh", "-c", "version"]
+
+[workflows]
+
+[[workflows.workflow]]
+name = "Ex"
+mode = "sequential"
+author = 44450589
+
+[[workflows.workflow.tasks]]
+task = "packager.installForAll"
